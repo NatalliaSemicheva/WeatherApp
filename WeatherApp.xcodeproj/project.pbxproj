@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE7097B62120154F005DB92B /* GPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7097B52120154F005DB92B /* GPSService.swift */; };
 		FECCE866211EC1040058A115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCE865211EC1040058A115 /* AppDelegate.swift */; };
 		FECCE868211EC1040058A115 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCE867211EC1040058A115 /* ViewController.swift */; };
 		FECCE86B211EC1040058A115 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FECCE869211EC1040058A115 /* Main.storyboard */; };
 		FECCE86D211EC1060058A115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FECCE86C211EC1060058A115 /* Assets.xcassets */; };
 		FECCE870211EC1060058A115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FECCE86E211EC1060058A115 /* LaunchScreen.storyboard */; };
+		FECCE87A211ECBB90058A115 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = FECCE879211ECBB90058A115 /* response.json */; };
+		FECCE87C211ECC1A0058A115 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCE87B211ECC1A0058A115 /* WeatherModel.swift */; };
+		FECCE880211EDE510058A115 /* CacheLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCE87F211EDE510058A115 /* CacheLoader.swift */; };
+		FECCE882211F062B0058A115 /* NetworkLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCE881211F062B0058A115 /* NetworkLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE7097B52120154F005DB92B /* GPSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSService.swift; sourceTree = "<group>"; };
 		FECCE862211EC1040058A115 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECCE865211EC1040058A115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FECCE867211EC1040058A115 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,10 @@
 		FECCE86C211EC1060058A115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FECCE86F211EC1060058A115 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FECCE871211EC1060058A115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FECCE879211ECBB90058A115 /* response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
+		FECCE87B211ECC1A0058A115 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		FECCE87F211EDE510058A115 /* CacheLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheLoader.swift; sourceTree = "<group>"; };
+		FECCE881211F062B0058A115 /* NetworkLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE7097B7212025CA005DB92B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FECCE87B211ECC1A0058A115 /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FECCE859211EC1040058A115 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +72,9 @@
 		FECCE864211EC1040058A115 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				FE7097B7212025CA005DB92B /* Model */,
+				FECCE878211ECB980058A115 /* Resources */,
+				FECCE877211ECA8E0058A115 /* Service */,
 				FECCE865211EC1040058A115 /* AppDelegate.swift */,
 				FECCE867211EC1040058A115 /* ViewController.swift */,
 				FECCE869211EC1040058A115 /* Main.storyboard */,
@@ -62,6 +83,24 @@
 				FECCE871211EC1060058A115 /* Info.plist */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		FECCE877211ECA8E0058A115 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FECCE87F211EDE510058A115 /* CacheLoader.swift */,
+				FECCE881211F062B0058A115 /* NetworkLoader.swift */,
+				FE7097B52120154F005DB92B /* GPSService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FECCE878211ECB980058A115 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FECCE879211ECBB90058A115 /* response.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FECCE87A211ECBB90058A115 /* response.json in Resources */,
 				FECCE870211EC1060058A115 /* LaunchScreen.storyboard in Resources */,
 				FECCE86D211EC1060058A115 /* Assets.xcassets in Resources */,
 				FECCE86B211EC1040058A115 /* Main.storyboard in Resources */,
@@ -136,6 +176,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FECCE868211EC1040058A115 /* ViewController.swift in Sources */,
+				FECCE880211EDE510058A115 /* CacheLoader.swift in Sources */,
+				FE7097B62120154F005DB92B /* GPSService.swift in Sources */,
+				FECCE87C211ECC1A0058A115 /* WeatherModel.swift in Sources */,
+				FECCE882211F062B0058A115 /* NetworkLoader.swift in Sources */,
 				FECCE866211EC1040058A115 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
