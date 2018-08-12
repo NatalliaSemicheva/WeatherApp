@@ -33,6 +33,11 @@ struct WeatherDescription: Decodable, Encodable  {
 
 struct Temperature: Decodable, Encodable  {
     let temp: Double
+
+    func celcius() -> String {
+        let celsiusDegree = Int(round(temp - 273.15))
+        return "\(celsiusDegree) C"
+    }
 }
 
 struct City: Decodable, Encodable  {

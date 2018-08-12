@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FE7097B62120154F005DB92B /* GPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7097B52120154F005DB92B /* GPSService.swift */; };
+		FE7097BA212033FB005DB92B /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7097B9212033FB005DB92B /* Weather.swift */; };
+		FE7097BC21203E26005DB92B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7097BB21203E26005DB92B /* ImageService.swift */; };
 		FECCE866211EC1040058A115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCE865211EC1040058A115 /* AppDelegate.swift */; };
 		FECCE868211EC1040058A115 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCE867211EC1040058A115 /* ViewController.swift */; };
 		FECCE86B211EC1040058A115 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FECCE869211EC1040058A115 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		FE7097B52120154F005DB92B /* GPSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSService.swift; sourceTree = "<group>"; };
+		FE7097B9212033FB005DB92B /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		FE7097BB21203E26005DB92B /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		FECCE862211EC1040058A115 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECCE865211EC1040058A115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FECCE867211EC1040058A115 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				FECCE87B211ECC1A0058A115 /* WeatherModel.swift */,
+				FE7097B9212033FB005DB92B /* Weather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,7 +83,6 @@
 				FECCE865211EC1040058A115 /* AppDelegate.swift */,
 				FECCE867211EC1040058A115 /* ViewController.swift */,
 				FECCE869211EC1040058A115 /* Main.storyboard */,
-				FECCE86C211EC1060058A115 /* Assets.xcassets */,
 				FECCE86E211EC1060058A115 /* LaunchScreen.storyboard */,
 				FECCE871211EC1060058A115 /* Info.plist */,
 			);
@@ -91,6 +95,7 @@
 				FECCE87F211EDE510058A115 /* CacheLoader.swift */,
 				FECCE881211F062B0058A115 /* NetworkLoader.swift */,
 				FE7097B52120154F005DB92B /* GPSService.swift */,
+				FE7097BB21203E26005DB92B /* ImageService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 		FECCE878211ECB980058A115 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FECCE86C211EC1060058A115 /* Assets.xcassets */,
 				FECCE879211ECBB90058A115 /* response.json */,
 			);
 			path = Resources;
@@ -176,9 +182,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FECCE868211EC1040058A115 /* ViewController.swift in Sources */,
+				FE7097BC21203E26005DB92B /* ImageService.swift in Sources */,
 				FECCE880211EDE510058A115 /* CacheLoader.swift in Sources */,
 				FE7097B62120154F005DB92B /* GPSService.swift in Sources */,
 				FECCE87C211ECC1A0058A115 /* WeatherModel.swift in Sources */,
+				FE7097BA212033FB005DB92B /* Weather.swift in Sources */,
 				FECCE882211F062B0058A115 /* NetworkLoader.swift in Sources */,
 				FECCE866211EC1040058A115 /* AppDelegate.swift in Sources */,
 			);
