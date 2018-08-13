@@ -10,21 +10,51 @@ import UIKit
 import CoreLocation
 
 class GPSService: NSObject, CLLocationManagerDelegate {
-    let locationManager = CLLocationManager()
     
-    func getCoordinates() -> CLLocationCoordinate2D? {
-        
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.requestWhenInUseAuthorization()
-        
+    static let shared = GPSService()
+    
+    let locationManager: CLLocationManager
+    var locationRequests: Array<(CLLocationCoordinate2D?) -> (Void)> = Array()
+    
+    override init() {
+        locationManager = CLLocationManager()
+        super.init()
+        self.configureLocationManager()
+    }
+    
+    func configureLocationManager() {
+        locationManager.delegate = self
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        
-        guard let locationValue: CLLocationCoordinate2D = locationManager.location?.coordinate else { return nil }
-        
-        return locationValue
     }
+    
+    func hasLocationPermission() -> Bool {
+        let authorizationStatus = CLLocationManager.authorizationStatus()
+        return (authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways)
+    }
+    
+    func requestLocationPermission() {
+        if hasLocationPermission() == false {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func getCoordinates(onFinish:(@escaping (CLLocationCoordinate2D?) -> (Void))) {
+        if (hasLocationPermission()) {
+            onFinish(locationManager.location?.coordinate)
+        } else {
+            locationRequests.append(onFinish)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            locationRequests.forEach { (onFinish) in
+                onFinish(locationManager.location?.coordinate)
+            }
+        }
+    }
+    
 }

@@ -10,9 +10,10 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var weatherItems = [WeatherItem]()
+    let cacheLoader = CacheLoader()
     
     let locationManager = CLLocationManager()
     
@@ -26,33 +27,36 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         
         weatherTableView.delegate = self
         weatherTableView.dataSource = self
+        let cellXib = UINib.init(nibName: "WeatherItemCellTableViewCell", bundle: nil)
+        weatherTableView.register(cellXib, forCellReuseIdentifier: "WeatherItem")
         
-        let jsonPath = Bundle.main.path(forResource: "response", ofType: "json")
-        let jsonData = try! Data(contentsOf: URL(fileURLWithPath: jsonPath!))
-        let decoder = JSONDecoder()
-        do {
-            let weather = try decoder.decode(WeatherModel.self, from: jsonData)
-            let loader = CacheLoader()
-            loader.saveData(data: weather)
-            showWeather(weatherModel: weather)
+        guard let weather = cacheLoader.loadData() else {
+            updateData()
+            return
         }
-        catch {
-            cityLabel.text = "error"
-        }
-        let m = NetworkLoader()
-        m.loadData(successBlock: { [unowned self] model in
-            DispatchQueue.main.async {
-                self.weatherItems = model.list
-                self.showWeather(weatherModel: model)
-                self.weatherTableView.reloadData()
-            }
-        }) { (error) in
-            
-        }
+        showWeather(weatherModel: weather)
+        weatherItems = weather.list
+        weatherTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func updateData(){
+        let networkLoader = NetworkLoader()
+        networkLoader.loadData(successBlock: { [unowned self] model in
+            DispatchQueue.main.async {
+                self.weatherItems = model.list
+                self.showWeather(weatherModel: model)
+                self.weatherTableView.reloadData()
+                self.cacheLoader.saveData(data: model)
+            }
+        }) { (error) in
+            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func showWeather(weatherModel model: WeatherModel) {
@@ -66,11 +70,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherItem") ?? UITableViewCell(style: .subtitle, reuseIdentifier: "WeatherItem")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherItem") as! WeatherItemCellTableViewCell
+        cell.layer.borderColor = UIColor.init(red: 148/255, green: 82/255, blue: 81/255, alpha: 1.0).cgColor
+        cell.layer.borderWidth = 0.3
+        cell.backgroundColor = UIColor.init(white: 0, alpha: 0)
+
         let weatherItem = self.weatherItems[indexPath.row]
-        cell.textLabel?.text = weatherItem.weather[0].description
-        cell.detailTextLabel?.text = weatherItem.degree.celcius()
-        
+        cell.dateLabel?.text = weatherItem.convertStringToDate()
+        cell.degreeLabel?.text = weatherItem.degree.celcius()
+        cell.weatherImage?.image = ImageService.getImage(weatherDescription: weatherItem.weather[0].description)
         return cell
     }
 }

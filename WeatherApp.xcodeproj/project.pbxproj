@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE6274942121B99B009159C7 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE6274932121B99B009159C7 /* Roboto-MediumItalic.ttf */; };
+		FE6274962121BA6E009159C7 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE6274952121BA6E009159C7 /* Roboto-ThinItalic.ttf */; };
+		FE6274982121BA8F009159C7 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE6274972121BA8F009159C7 /* Roboto-Medium.ttf */; };
+		FE62749A2121E950009159C7 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE6274992121E94F009159C7 /* Roboto-LightItalic.ttf */; };
+		FE62749C2121E965009159C7 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE62749B2121E965009159C7 /* Roboto-Regular.ttf */; };
 		FE7097B62120154F005DB92B /* GPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7097B52120154F005DB92B /* GPSService.swift */; };
 		FE7097BA212033FB005DB92B /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7097B9212033FB005DB92B /* Weather.swift */; };
 		FE7097BC21203E26005DB92B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7097BB21203E26005DB92B /* ImageService.swift */; };
+		FE7097BF2120B9C4005DB92B /* WeatherItemCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7097BD2120B9C4005DB92B /* WeatherItemCellTableViewCell.swift */; };
+		FE7097C02120B9C4005DB92B /* WeatherItemCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7097BE2120B9C4005DB92B /* WeatherItemCellTableViewCell.xib */; };
 		FECCE866211EC1040058A115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCE865211EC1040058A115 /* AppDelegate.swift */; };
 		FECCE868211EC1040058A115 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCE867211EC1040058A115 /* ViewController.swift */; };
 		FECCE86B211EC1040058A115 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FECCE869211EC1040058A115 /* Main.storyboard */; };
@@ -22,9 +29,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE6274932121B99B009159C7 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		FE6274952121BA6E009159C7 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		FE6274972121BA8F009159C7 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		FE6274992121E94F009159C7 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		FE62749B2121E965009159C7 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		FE7097B52120154F005DB92B /* GPSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSService.swift; sourceTree = "<group>"; };
 		FE7097B9212033FB005DB92B /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		FE7097BB21203E26005DB92B /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		FE7097BD2120B9C4005DB92B /* WeatherItemCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherItemCellTableViewCell.swift; sourceTree = "<group>"; };
+		FE7097BE2120B9C4005DB92B /* WeatherItemCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherItemCellTableViewCell.xib; sourceTree = "<group>"; };
 		FECCE862211EC1040058A115 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECCE865211EC1040058A115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FECCE867211EC1040058A115 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +63,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE34BD6E2122116F00159004 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FECCE881211F062B0058A115 /* NetworkLoader.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FE6274922121B936009159C7 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				FE6274932121B99B009159C7 /* Roboto-MediumItalic.ttf */,
+				FE6274952121BA6E009159C7 /* Roboto-ThinItalic.ttf */,
+				FE6274992121E94F009159C7 /* Roboto-LightItalic.ttf */,
+				FE62749B2121E965009159C7 /* Roboto-Regular.ttf */,
+				FE6274972121BA8F009159C7 /* Roboto-Medium.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		FE7097B7212025CA005DB92B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +111,8 @@
 		FECCE864211EC1040058A115 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				FE34BD6E2122116F00159004 /* Network */,
+				FE6274922121B936009159C7 /* Font */,
 				FE7097B7212025CA005DB92B /* Model */,
 				FECCE878211ECB980058A115 /* Resources */,
 				FECCE877211ECA8E0058A115 /* Service */,
@@ -85,6 +121,8 @@
 				FECCE869211EC1040058A115 /* Main.storyboard */,
 				FECCE86E211EC1060058A115 /* LaunchScreen.storyboard */,
 				FECCE871211EC1060058A115 /* Info.plist */,
+				FE7097BD2120B9C4005DB92B /* WeatherItemCellTableViewCell.swift */,
+				FE7097BE2120B9C4005DB92B /* WeatherItemCellTableViewCell.xib */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -93,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				FECCE87F211EDE510058A115 /* CacheLoader.swift */,
-				FECCE881211F062B0058A115 /* NetworkLoader.swift */,
 				FE7097B52120154F005DB92B /* GPSService.swift */,
 				FE7097BB21203E26005DB92B /* ImageService.swift */,
 			);
@@ -167,9 +204,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE6274982121BA8F009159C7 /* Roboto-Medium.ttf in Resources */,
 				FECCE87A211ECBB90058A115 /* response.json in Resources */,
+				FE62749C2121E965009159C7 /* Roboto-Regular.ttf in Resources */,
+				FE7097C02120B9C4005DB92B /* WeatherItemCellTableViewCell.xib in Resources */,
 				FECCE870211EC1060058A115 /* LaunchScreen.storyboard in Resources */,
+				FE6274962121BA6E009159C7 /* Roboto-ThinItalic.ttf in Resources */,
+				FE62749A2121E950009159C7 /* Roboto-LightItalic.ttf in Resources */,
 				FECCE86D211EC1060058A115 /* Assets.xcassets in Resources */,
+				FE6274942121B99B009159C7 /* Roboto-MediumItalic.ttf in Resources */,
 				FECCE86B211EC1040058A115 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +231,7 @@
 				FECCE87C211ECC1A0058A115 /* WeatherModel.swift in Sources */,
 				FE7097BA212033FB005DB92B /* Weather.swift in Sources */,
 				FECCE882211F062B0058A115 /* NetworkLoader.swift in Sources */,
+				FE7097BF2120B9C4005DB92B /* WeatherItemCellTableViewCell.swift in Sources */,
 				FECCE866211EC1040058A115 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

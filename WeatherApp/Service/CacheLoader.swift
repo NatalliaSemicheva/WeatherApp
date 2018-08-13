@@ -40,17 +40,4 @@ class CacheLoader: NSObject {
         }
         return nil
     }
-    
-//    func loadData() -> WeatherModel? {
-//        let path = datafilePath()
-//        guard let data = try? Data(contentsOf: path) else {
-//            return nil
-//        }
-//        let decoder = PropertyListDecoder()
-//        do {
-//            return try decoder.decode(WeatherModel.self, from: data)
-//        } catch {
-//            print("error decoding item array!")
-//        }
-//    }
 }
