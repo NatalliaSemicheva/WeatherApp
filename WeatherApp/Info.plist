@@ -22,10 +22,6 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Program requires GPS to get your location</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Program requires GPS to get your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Program requires GPS to get your location</string>
 	<key>NSAppTransportSecurity</key>

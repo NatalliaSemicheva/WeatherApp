@@ -1,5 +1,5 @@
 //
-//  GPSService.swift
+//  GPSLocationProvider.swift
 //  WeatherApp
 //
 //  Created by Наталия Семичева on 8/12/18.
@@ -9,12 +9,12 @@
 import UIKit
 import CoreLocation
 
-class GPSService: NSObject, CLLocationManagerDelegate {
+class GPSLocationProvider: NSObject, LocationProviding, CLLocationManagerDelegate {
     
-    static let shared = GPSService()
+    static let shared = GPSLocationProvider()
     
     let locationManager: CLLocationManager
-    var locationRequests: Array<(CLLocationCoordinate2D?) -> (Void)> = Array()
+    var locationRequests: Array<(Location?) -> (Void)> = Array()
     
     override init() {
         locationManager = CLLocationManager()
@@ -41,19 +41,29 @@ class GPSService: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func getCoordinates(onFinish:(@escaping (CLLocationCoordinate2D?) -> (Void))) {
-        if (hasLocationPermission()) {
-            onFinish(locationManager.location?.coordinate)
-        } else {
-            locationRequests.append(onFinish)
-        }
-    }
-    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             locationRequests.forEach { (onFinish) in
-                onFinish(locationManager.location?.coordinate)
+                onFinish(location(forCoordinate: locationManager.location?.coordinate))
             }
+        }
+    }
+    
+    func location(forCoordinate coordinate:CLLocationCoordinate2D?) -> Location? {
+        if let coordinate = coordinate {
+            return Location(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        } else {
+            return nil
+        }
+    }
+    
+    // MARK: - LocationProviding
+    
+    func getLocation(onFinish:(@escaping (Location?) -> (Void))) {
+        if (hasLocationPermission()) {
+            onFinish(location(forCoordinate: locationManager.location?.coordinate))
+        } else {
+            locationRequests.append(onFinish)
         }
     }
     
